@@ -1,0 +1,15 @@
+tile.between_iron_ore.name=Between Iron Ore
+tile.between_gold_ore.name=Between Gold Ore
+tile.between_redstone_ore.name=Between Redstone Ore
+tile.between_lapis_ore.name=Between Lapis Lazuli Ore
+tile.between_diamond_ore.name=Between Diamond Ore
+tile.between_quartz_ore.name=Between Quartz Ore
+
+tile.between_copper_ore.name=Between Copper Ore
+tile.between_lead_ore.name=Between Lead Ore
+tile.between_nickel_ore.name=Between Nickel Ore
+tile.between_silver_ore.name=Between Silver Ore
+tile.between_tin_ore.name=Between Tin Ore
+
+item.octine_nugget.name=Octine Nugget
+item.syrmorite_nugget.name=Syrmorite Nugget

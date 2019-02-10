@@ -1,0 +1,16 @@
+[
+{
+  "modid": "betweenores",
+  "name": "Between Ores",
+  "description": "Add some Betweenlands-Style Ores.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["baka943"],
+  "credits": "The Forge and FML",
+  "logoFile": "assets/betweenores/textures/logo.png",
+  "screenshots": [],
+  "dependencies": []
+}
+]

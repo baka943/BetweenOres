@@ -1,0 +1,15 @@
+tile.between_iron_ore.name=交错铁矿石
+tile.between_gold_ore.name=交错金矿石
+tile.between_redstone_ore.name=交错红石矿石
+tile.between_lapis_ore.name=交错青金石矿石
+tile.between_diamond_ore.name=交错钻石矿石
+tile.between_quartz_ore.name=交错石英矿石
+
+tile.between_copper_ore.name=交错铜矿石
+tile.between_lead_ore.name=交错铅矿石
+tile.between_nickel_ore.name=交错镍矿石
+tile.between_silver_ore.name=交错银矿石
+tile.between_tin_ore.name=交错锡矿石
+
+item.octine_nugget.name=炽炎铁粒
+item.syrmorite_nugget.name=赛摩铜粒

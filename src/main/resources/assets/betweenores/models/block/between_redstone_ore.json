@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "betweenores:blocks/between_redstone_ore"
+  }
+}
