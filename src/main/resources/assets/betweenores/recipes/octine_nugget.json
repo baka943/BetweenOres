@@ -1,0 +1,17 @@
+{
+  "type": "forge:ore_shaped",
+  "group": "betweenores:metals",
+  "result": {
+    "item": "betweenores:octine_nugget",
+    "count": 9
+  },
+  "pattern": [
+    "X"
+  ],
+  "key": {
+    "X": {
+      "type": "forge:ore_dict",
+      "ore": "ingotOctine"
+    }
+  }
+}

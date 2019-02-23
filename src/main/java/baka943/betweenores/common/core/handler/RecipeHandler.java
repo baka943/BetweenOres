@@ -22,23 +22,6 @@ public final class RecipeHandler {
 	public static void registerRecipes(RegistryEvent.Register<IRecipe> evt) {
 		IForgeRegistry<IRecipe> r = evt.getRegistry();
 
-		r.register(new ShapedOreRecipe(getRL("octine_nugget"), new ItemStack(ModItems.nuggetOctine, 9), true, new Object[] {
-			"O",
-			'O', "ingotOctine"}).setRegistryName(getRL("octine_nugget")));
-		r.register(new ShapedOreRecipe(getRL("octine_ingot"), new ItemStack(ItemRegistry.OCTINE_INGOT), true, new Object[] {
-			"ooo",
-			"ooo",
-			"ooo",
-			'o', "nuggetOctine"}).setRegistryName(getRL("octine_ingot")));
-		r.register(new ShapedOreRecipe(getRL("syrmorite_nugget"), new ItemStack(ModItems.nuggetSyrmorite, 9), true, new Object[] {
-			"S",
-			'S', "ingotSyrmorite"}).setRegistryName(getRL("syrmorite_nugget")));
-		r.register(new ShapedOreRecipe(getRL("syrmorite_ingot"), new ItemStack(ItemRegistry.ITEMS_MISC, 1, 11), true, new Object[] {
-			"sss",
-			"sss",
-			"sss",
-			's', "nuggetSyrmorite"}).setRegistryName(getRL("syrmorite_ingot")));
-
 		GameRegistry.addSmelting(new ItemStack(ModBlocks.betweenIronOre), new ItemStack(Items.IRON_INGOT), 0.7f);
 		GameRegistry.addSmelting(new ItemStack(ModBlocks.betweenGoldOre), new ItemStack(Items.GOLD_INGOT), 1.0f);
 		GameRegistry.addSmelting(new ItemStack(ModBlocks.betweenRedstoneOre), new ItemStack(Items.REDSTONE), 0.7f);

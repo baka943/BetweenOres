@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "betweenores:water_bucket",
+  "result": {
+    "item": "minecraft:water_bucket"
+  },
+  "ingredients": [
+    {
+      "type": "minecraft:item_nbt",
+      "item": "forge:bucketfilled",
+      "nbt": {"FluidName": "swamp_water", "Amount": 1000}
+    },
+    {
+      "item": "minecraft:coal",
+      "data": 1
+    }
+  ]
+}

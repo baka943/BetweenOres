@@ -1,0 +1,19 @@
+{
+  "type": "forge:ore_shaped",
+  "group": "betweenores:metals",
+  "result": {
+    "item": "thebetweenlands:items_misc",
+    "data": 11
+  },
+  "pattern": [
+    "XXX",
+    "XXX",
+    "XXX"
+  ],
+  "key": {
+    "X": {
+      "type": "forge:ore_dict",
+      "ore": "nuggetSyrmorite"
+    }
+  }
+}
