@@ -1,7 +1,6 @@
 package baka943.betweenores.common.core.handler;
 
 import baka943.betweenores.common.block.ModBlocks;
-import baka943.betweenores.common.item.ModItems;
 import baka943.betweenores.common.lib.LibMisc;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
@@ -11,9 +10,7 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
-import net.minecraftforge.oredict.ShapedOreRecipe;
 import net.minecraftforge.registries.IForgeRegistry;
-import thebetweenlands.common.registries.ItemRegistry;
 
 @Mod.EventBusSubscriber(modid = LibMisc.MOD_ID)
 public final class RecipeHandler {

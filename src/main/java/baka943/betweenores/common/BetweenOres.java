@@ -1,7 +1,6 @@
 package baka943.betweenores.common;
 
 import baka943.betweenores.common.core.handler.ConfigHandler;
-import baka943.betweenores.common.core.handler.RecipeHandler;
 import baka943.betweenores.common.core.proxy.IProxy;
 import baka943.betweenores.common.lib.LibMisc;
 import baka943.betweenores.common.world.gen.OreGens;
