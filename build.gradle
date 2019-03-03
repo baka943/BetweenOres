@@ -28,6 +28,7 @@ minecraft {
 
 dependencies {
     compile files('libs/')
+
 }
 
 processResources {

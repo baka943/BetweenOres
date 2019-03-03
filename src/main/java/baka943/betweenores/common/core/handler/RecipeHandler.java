@@ -30,4 +30,5 @@ public final class RecipeHandler {
 	public static ResourceLocation getRL(String name) {
 		return new ResourceLocation(LibMisc.MOD_ID, name);
 	}
+
 }
