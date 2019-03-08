@@ -22,7 +22,7 @@ public final class RecipeHandler {
 		GameRegistry.addSmelting(new ItemStack(ModBlocks.betweenIronOre), new ItemStack(Items.IRON_INGOT), 0.7f);
 		GameRegistry.addSmelting(new ItemStack(ModBlocks.betweenGoldOre), new ItemStack(Items.GOLD_INGOT), 1.0f);
 		GameRegistry.addSmelting(new ItemStack(ModBlocks.betweenRedstoneOre), new ItemStack(Items.REDSTONE), 0.7f);
-		GameRegistry.addSmelting(new ItemStack(ModBlocks.betweenLapisOre), new ItemStack(Items.DYE, 1, 4), 0.2f);
+		GameRegistry.addSmelting(new ItemStack(ModBlocks.betweenLapisOre), new ItemStack(Items.DYE, 8, 4), 0.2f);
 		GameRegistry.addSmelting(new ItemStack(ModBlocks.betweenDiamondOre), new ItemStack(Items.DIAMOND), 1.0f);
 		GameRegistry.addSmelting(new ItemStack(ModBlocks.betweenQuartzOre), new ItemStack(Items.QUARTZ), 0.2f);
 	}

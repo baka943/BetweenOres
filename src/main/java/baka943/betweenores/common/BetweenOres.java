@@ -1,6 +1,7 @@
 package baka943.betweenores.common;
 
 import baka943.betweenores.common.core.handler.ConfigHandler;
+import baka943.betweenores.common.core.handler.EventHandler;
 import baka943.betweenores.common.core.proxy.IProxy;
 import baka943.betweenores.common.lib.LibMisc;
 import baka943.betweenores.common.world.gen.OreGens;
@@ -26,17 +27,19 @@ public class BetweenOres {
         GameRegistry.registerWorldGenerator(new OreGens(), 0);
         MinecraftForge.EVENT_BUS.register(new ConfigHandler());
         ConfigHandler.init(event.getSuggestedConfigurationFile());
-        proxy.preInit(event);
+	    proxy.preInit(event);
     }
 
-    @Mod.EventHandler
-    public void init(FMLInitializationEvent event) {
+
+	@Mod.EventHandler
+	public void init(FMLInitializationEvent event) {
+		MinecraftForge.EVENT_BUS.register(EventHandler.class);
     	proxy.init(event);
-    }
+	}
 
-    @Mod.EventHandler
-    public void postInit(FMLPostInitializationEvent event) {
-        proxy.postInit(event);
-    }
+	@Mod.EventHandler
+	public void postInit(FMLPostInitializationEvent event) {
+		proxy.postInit(event);
+	}
 
 }

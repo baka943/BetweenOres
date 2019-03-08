@@ -24,6 +24,8 @@ public class ConfigHandler {
 
     public static boolean enableCopper, enableLead, enableNickel, enableSilver, enableTin;
 
+    public static boolean disableNether;
+
     public static void init(File configFile) {
         if(config == null) {
             config = new Configuration(configFile);
@@ -33,7 +35,8 @@ public class ConfigHandler {
 
     private static void load() {
 
-        config.addCustomCategoryComment("ores", "Settings related to ore generation.");
+    	//Ores
+        config.addCustomCategoryComment("ores", "Settings related to ore generation");
 
         ironMinY = config.getInt("ironMinY", "ores", 40, 0, 254, "Minimum height over which iron ore will spawn.");
         ironMaxY = config.getInt("ironMaxY", "ores", 100, 1, 255, "Maximum height under which iron ore will spawn.");
@@ -65,7 +68,8 @@ public class ConfigHandler {
         quartzVeinSize = config.getInt("quartzVeinSize", "ores", 8, 0, 255, "Maximum size of a quartz ore vein (in blocks).");
         quartzVeinsPerChunk = config.getInt("quartzVeinsPerChunk", "ores", 4, 0, 255, "Number of attempts to spawn quartz ore the world generator will make for each chunk.");
 
-        config.addCustomCategoryComment("compat", "Settings related to compatibility with other mods.");
+        //Compat
+        config.addCustomCategoryComment("compat", "Settings related to compatibility with other mods");
 
         enableCopper = config.getBoolean("copperEnable", "compat", true, "If true, copper ore will generate in the betweenlands.");
         copperMinY = config.getInt("copperMinY", "compat", 40, 0, 254, "Minimum height over which copper ore will spawn.");
@@ -96,6 +100,10 @@ public class ConfigHandler {
         tinMaxY = config.getInt("tinMaxY", "compat", 100, 1, 255, "Maximum height under which tin ore will spawn.");
         tinVeinSize = config.getInt("tinVeinSize", "compat", 6, 0, 255, "Maximum size of a tin ore vein (in blocks).");
         tinVeinsPerChunk = config.getInt("tinVeinsPerChunk", "compat", 6, 0, 255, "Number of attempts to spawn tin ore the world generator will make for each chunk.");
+
+        //Misc
+	    config.addCustomCategoryComment("misc", "Something I want to achieve");
+		disableNether = config.getBoolean("disableNetherPortals", "misc", false, "If true, Disable the nether portals.");
 
         if(config.hasChanged()) {
             config.save();

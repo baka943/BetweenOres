@@ -4,7 +4,6 @@ import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Items;
-import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.Item;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
@@ -32,18 +31,9 @@ public class BlockOres extends BlockMod {
             return Items.DIAMOND;
         } else if(this == ModBlocks.betweenRedstoneOre) {
             return Items.REDSTONE;
-        } else if (this == ModBlocks.betweenLapisOre) {
-            return Items.DYE;
         } else {
             return this == ModBlocks.betweenQuartzOre ? Items.QUARTZ : Item.getItemFromBlock(this);
         }
-    }
-
-    /**
-     * Returns the quantity of items to drop on block destruction.
-     */
-    public int quantityDropped(Random random) {
-        return this == ModBlocks.betweenLapisOre ? 4 + random.nextInt(5) : 1;
     }
 
     /**
@@ -78,8 +68,6 @@ public class BlockOres extends BlockMod {
                 i = MathHelper.getInt(rand, 3, 7);
             } else if(this == ModBlocks.betweenRedstoneOre) {
                 i = MathHelper.getInt(rand, 2, 5);
-            } else if (this == ModBlocks.betweenLapisOre) {
-                i = MathHelper.getInt(rand, 2, 5);
             } else if (this == ModBlocks.betweenQuartzOre) {
                 i = MathHelper.getInt(rand, 2, 5);
             }
@@ -87,14 +75,6 @@ public class BlockOres extends BlockMod {
             return i;
         }
         return 0;
-    }
-
-    /**
-     * Gets the metadata of the item this Block can drop. This method is called when the block gets destroyed. It
-     * returns the metadata of the dropped item based on the old metadata of the block.
-     */
-    public int damageDropped(IBlockState state) {
-        return this == ModBlocks.betweenLapisOre ? EnumDyeColor.BLUE.getDyeDamage() : 0;
     }
 
 }
