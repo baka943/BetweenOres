@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "inventory": { "model": "betweenores:copper_ore" },
+    "normal": { "model": "betweenores:copper_ore" }
+  }
+}

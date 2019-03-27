@@ -10,6 +10,7 @@ import net.minecraftforge.registries.IForgeRegistry;
 
 @Mod.EventBusSubscriber(modid = LibMisc.MOD_ID)
 public class ModItems {
+
 	public static final Item nuggetOctine = new ItemMod("octine_nugget");
 	public static final Item nuggetSyrmorite = new ItemMod("syrmorite_nugget");
 

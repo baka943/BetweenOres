@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "betweenores:blocks/between_silver_ore"
+    "all": "betweenores:blocks/nickel_ore"
   }
 }

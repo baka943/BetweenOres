@@ -18,7 +18,6 @@ public class OreGens implements IWorldGenerator {
     @Override
     public void generate(Random rand, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
         if(!world.isRemote) {
-
             WorldGenBLMinable BE_IRON = new WorldGenBLMinable(ModBlocks.betweenIronOre.getDefaultState(), ConfigHandler.ironVeinSize, BlockMatcher.forBlock(BlockRegistry.BETWEENSTONE));
             for(int i = 0; i < ConfigHandler.ironVeinsPerChunk; i++) {
                 int x = chunkX * 16 + rand.nextInt(16);
@@ -116,7 +115,6 @@ public class OreGens implements IWorldGenerator {
                     BE_SILVER.generate(world, rand, new BlockPos(x, y, z));
                 }
             }
-
         }
     }
 

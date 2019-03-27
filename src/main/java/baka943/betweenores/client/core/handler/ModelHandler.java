@@ -16,27 +16,31 @@ import java.util.Locale;
 
 @Mod.EventBusSubscriber(value = Side.CLIENT, modid = LibMisc.MOD_ID)
 public final class ModelHandler {
-    @SubscribeEvent
+
+	private ModelHandler() {}
+
+	@SubscribeEvent
     public static void registerModels(ModelRegistryEvent evt) {
         OBJLoader.INSTANCE.addDomain(LibMisc.MOD_ID.toLowerCase(Locale.ROOT));
 
         for(Block block : Block.REGISTRY) {
-            if(block instanceof IModelRegister)
-                ((IModelRegister) block).registerModels();
+	        if(block instanceof IModelRegister) {
+		        ((IModelRegister) block).registerModels();
+	        }
         }
 
         for(Item item : Item.REGISTRY) {
-            if(item instanceof IModelRegister)
-                ((IModelRegister) item).registerModels();
+	        if(item instanceof IModelRegister) {
+		        ((IModelRegister) item).registerModels();
+	        }
         }
     }
 
-    // Registers the ItemBlock to models/item/<registryname>#inventory
+	// Registers the ItemBlock to models/item/<registryname>#inventory
     public static void registerInventoryVariant(Block b) {
         ModelLoader.setCustomModelResourceLocation(
                 Item.getItemFromBlock(b), 0,
                 new ModelResourceLocation(b.getRegistryName(), "inventory"));
     }
 
-    private ModelHandler() {}
 }

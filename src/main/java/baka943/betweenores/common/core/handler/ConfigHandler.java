@@ -8,6 +8,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import java.io.File;
 
 public class ConfigHandler {
+
     private static Configuration config;
 
     public static int ironMinY, ironMaxY, ironVeinSize, ironVeinsPerChunk;
@@ -24,7 +25,7 @@ public class ConfigHandler {
 
     public static boolean enableCopper, enableLead, enableNickel, enableSilver, enableTin;
 
-    public static boolean disableNether;
+    public static boolean disableNether, disableStronghold;
 
     public static void init(File configFile) {
         if(config == null) {
@@ -34,7 +35,6 @@ public class ConfigHandler {
     }
 
     private static void load() {
-
     	//Ores
         config.addCustomCategoryComment("ores", "Settings related to ore generation");
 
@@ -103,7 +103,9 @@ public class ConfigHandler {
 
         //Misc
 	    config.addCustomCategoryComment("misc", "Something I want to achieve");
-		disableNether = config.getBoolean("disableNetherPortals", "misc", false, "If true, Disable the nether portals.");
+
+	    disableNether = config.getBoolean("disableNetherPortals", "misc", false, "If true, Disable the nether portals.");
+	    disableStronghold = config.getBoolean("disableStronghold", "misc", false, "If true, Disable the Stronghold.");
 
         if(config.hasChanged()) {
             config.save();

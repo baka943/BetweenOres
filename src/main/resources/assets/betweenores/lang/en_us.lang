@@ -1,15 +1,24 @@
-tile.between_iron_ore.name=Iron Ore
-tile.between_gold_ore.name=Gold Ore
-tile.between_redstone_ore.name=Redstone Ore
-tile.between_lapis_ore.name=Lapis Lazuli Ore
-tile.between_diamond_ore.name=Diamond Ore
-tile.between_quartz_ore.name=Quartz Ore
+tile.betweenores.iron_ore.name=Iron Ore
+tile.betweenores.gold_ore.name=Gold Ore
+tile.betweenores.lapis_ore.name=Lapis Lazuli Ore
+tile.betweenores.diamond_ore.name=Diamond Ore
+tile.betweenores.quartz_ore.name=Quartz Ore
 
-tile.between_copper_ore.name=Copper Ore
-tile.between_lead_ore.name=Lead Ore
-tile.between_nickel_ore.name=Nickel Ore
-tile.between_silver_ore.name=Silver Ore
-tile.between_tin_ore.name=Tin Ore
+tile.betweenores.redstone_ore.name=Redstone Ore
+tile.betweenores.lit_redstone_ore.name=Redstone Ore
 
-item.octine_nugget.name=Octine Nugget
-item.syrmorite_nugget.name=Syrmorite Nugget
+tile.betweenores.copper_ore.name=Copper Ore
+tile.betweenores.lead_ore.name=Lead Ore
+tile.betweenores.nickel_ore.name=Nickel Ore
+tile.betweenores.silver_ore.name=Silver Ore
+tile.betweenores.tin_ore.name=Tin Ore
+
+item.betweenores.octine_nugget.name=Octine Nugget
+item.betweenores.syrmorite_nugget.name=Syrmorite Nugget
+
+location.overworld.name=80:<scale:1.75>Overworld</scale>
+location.underworld.name=80:<scale:1.75>Underworld</scale>
+location.nether.name=80:<scale:1.75>Nether</scale>
+location.lava_sea.name=80:<scale:1.75>Lava Sea</scale>
+location.the_end.name=80:<scale:1.75>The End</scale>
+location.the_void.name=80:<scale:1.75>The Void</scale>

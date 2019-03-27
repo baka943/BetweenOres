@@ -1,15 +1,17 @@
-tile.between_iron_ore.name=铁矿石
-tile.between_gold_ore.name=金矿石
-tile.between_redstone_ore.name=红石矿石
-tile.between_lapis_ore.name=青金石矿石
-tile.between_diamond_ore.name=钻石矿石
-tile.between_quartz_ore.name=石英矿石
+tile.betweenores.iron_ore.name=铁矿石
+tile.betweenores.gold_ore.name=金矿石
+tile.betweenores.lapis_ore.name=青金石矿石
+tile.betweenores.diamond_ore.name=钻石矿石
+tile.betweenores.quartz_ore.name=石英矿石
 
-tile.between_copper_ore.name=铜矿石
-tile.between_lead_ore.name=铅矿石
-tile.between_nickel_ore.name=镍矿石
-tile.between_silver_ore.name=银矿石
-tile.between_tin_ore.name=锡矿石
+tile.betweenores.redstone_ore.name=红石矿石
+tile.betweenores.lit_redstone_ore.name=红石矿石
 
-item.octine_nugget.name=炽炎铁粒
-item.syrmorite_nugget.name=赛摩铜粒
+tile.betweenores.copper_ore.name=铜矿石
+tile.betweenores.lead_ore.name=铅矿石
+tile.betweenores.nickel_ore.name=镍矿石
+tile.betweenores.silver_ore.name=银矿石
+tile.betweenores.tin_ore.name=锡矿石
+
+item.betweenores.octine_nugget.name=炽炎铁粒
+item.betweenores.syrmorite_nugget.name=赛摩铜粒

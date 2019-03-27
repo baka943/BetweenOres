@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "betweenores:blocks/between_lapis_ore"
+    "all": "betweenores:blocks/lapis_ore"
   }
 }

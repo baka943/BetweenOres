@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "inventory": { "model": "betweenores:lapis_ore" },
+    "normal": { "model": "betweenores:lapis_ore" }
+  }
+}

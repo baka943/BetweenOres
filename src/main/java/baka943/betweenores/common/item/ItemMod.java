@@ -11,9 +11,10 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import thebetweenlands.client.tab.BLCreativeTabs;
 
 public class ItemMod extends Item implements IModelRegister {
+
 	public ItemMod(String name) {
 		super();
-		setUnlocalizedName(name);
+		setTranslationKey(LibMisc.MOD_ID + "." + name);
 		setRegistryName(new ResourceLocation(LibMisc.MOD_ID, name));
 		setCreativeTab(BLCreativeTabs.ITEMS);
 	}
@@ -23,4 +24,5 @@ public class ItemMod extends Item implements IModelRegister {
 	public void registerModels() {
 		ModelLoader.setCustomModelResourceLocation(this, 0, new ModelResourceLocation(getRegistryName(), "inventory"));
 	}
+
 }
