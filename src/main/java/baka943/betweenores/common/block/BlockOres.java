@@ -6,8 +6,6 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.world.World;
 import net.minecraft.world.IBlockAccess;
 import thebetweenlands.client.tab.BLCreativeTabs;
 
@@ -25,10 +23,8 @@ public class BlockOres extends BlockMod {
 	    this.setCreativeTab(BLCreativeTabs.BLOCKS);
     }
 
-    /**
-     * Get the Item that this Block should drop when harvested.
-     */
     @Nonnull
+    @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune) {
         if(this == ModBlocks.betweenDiamondOre) {
             return Items.DIAMOND;
@@ -37,44 +33,26 @@ public class BlockOres extends BlockMod {
         }
     }
 
-    /**
-     * Get the quantity dropped based on the given fortune level
-     */
+    @Override
     public int quantityDroppedWithBonus(int fortune, @Nonnull Random rand) {
-        if(fortune > 0 && Item.getItemFromBlock(this) != this.getItemDropped(this.getBlockState().getValidStates().iterator().next(), rand, fortune)) {
-            int i = rand.nextInt(fortune + 2) - 1;
+        if(fortune > 0 && Item.getItemFromBlock(this) != this.getItemDropped(this.getDefaultState(), rand, fortune)) {
+	        int i = rand.nextInt(fortune + 1);
 
-            if(i < 0) i = 0;
-
-            return this.quantityDropped(rand) * (i + 1);
-        } else {
-            return this.quantityDropped(rand);
+	        return i + 1;
         }
-    }
 
-    /**
-     * Spawns this Block's drops into the World as EntityItems.
-     */
-    public void dropBlockAsItemWithChance(World worldIn, @Nonnull BlockPos pos, @Nonnull IBlockState state, float chance, int fortune) {
-        super.dropBlockAsItemWithChance(worldIn, pos, state, chance, fortune);
+        return 1;
     }
 
     @Override
     public int getExpDrop(IBlockState state, IBlockAccess world, BlockPos pos, int fortune) {
-        Random rand = new Random();
-        if(this.getItemDropped(state, rand, fortune) != Item.getItemFromBlock(this)) {
-            int i = 0;
+	    Random rand = new Random();
 
-            if(this == ModBlocks.betweenDiamondOre) {
-                i = MathHelper.getInt(rand, 3, 7);
-            } else if(this == ModBlocks.betweenQuartzOre) {
-                i = MathHelper.getInt(rand, 2, 5);
-            }
-
-            return i;
+        if(this == ModBlocks.betweenDiamondOre) {
+            return rand.nextInt(4) + 3;
+        } else {
+	        return this == ModBlocks.betweenQuartzOre ? rand.nextInt(3) + 2 : 0;
         }
-
-        return 0;
     }
 
 }

@@ -1,6 +1,6 @@
 package baka943.betweenores.client.core.proxy;
 
-import baka943.betweenores.client.core.handler.ScreenRenderHandler;
+import baka943.betweenores.client.core.handler.TitleHandler;
 import baka943.betweenores.common.core.proxy.IProxy;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -20,7 +20,7 @@ public class ClientProxy implements IProxy {
 
 	@Override
     public void registerEventHandlers() {
-	    MinecraftForge.EVENT_BUS.register(ScreenRenderHandler.INSTANCE);
+	    MinecraftForge.EVENT_BUS.register(TitleHandler.INSTANCE);
     }
 
 }

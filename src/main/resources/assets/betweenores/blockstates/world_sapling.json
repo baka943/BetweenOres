@@ -1,0 +1,25 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "cross"
+  },
+  "variants": {
+    "variant": {
+      "alternate": {
+        "textures": {
+          "cross": "betweenores:blocks/sapling/worldsapling_alternate"
+        }
+      },
+      "another": {
+        "textures": {
+          "cross": "betweenores:blocks/sapling/worldsapling_another"
+        }
+      },
+      "nightmare": {
+        "textures": {
+          "cross": "betweenores:blocks/sapling/worldsapling_nightmare"
+        }
+      }
+    }
+  }
+}

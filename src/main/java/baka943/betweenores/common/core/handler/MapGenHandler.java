@@ -9,10 +9,8 @@ public class MapGenHandler {
 
 	@SubscribeEvent
 	public void onMapGen(InitMapGenEvent event) {
-		if(ConfigHandler.disableStronghold) {
-			if(event.getType() == EventType.STRONGHOLD) {
-				event.setNewGen(new MapGenStrongholdEmpty());
-			}
+		if(ConfigHandler.disableStronghold && event.getType() == EventType.STRONGHOLD) {
+			event.setNewGen(new MapGenStrongholdEmpty());
 		}
 	}
 

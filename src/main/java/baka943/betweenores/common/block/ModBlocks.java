@@ -3,15 +3,30 @@ package baka943.betweenores.common.block;
 import baka943.betweenores.common.core.handler.ConfigHandler;
 import baka943.betweenores.common.lib.LibMisc;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockSapling;
+import net.minecraft.block.properties.IProperty;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.client.renderer.block.statemap.StateMap;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.StringUtils;
+import net.minecraftforge.client.event.ModelRegistryEvent;
+import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.registries.IForgeRegistry;
+import net.minecraftforge.registries.IForgeRegistryEntry;
+import slimeknights.mantle.item.ItemBlockMeta;
 import thebetweenlands.client.tab.BLCreativeTabs;
+import thebetweenlands.common.block.plant.BlockSaplingBetweenlands;
+import thebetweenlands.common.world.gen.feature.tree.WorldGenWeedwoodTree;
 
 @Mod.EventBusSubscriber(modid = LibMisc.MOD_ID)
 public final class ModBlocks {
@@ -22,14 +37,16 @@ public final class ModBlocks {
 	public static final Block betweenDiamondOre = new BlockOres("diamond_ore", 2);
 	public static final Block betweenQuartzOre = new BlockOres("quartz_ore", 1);
 
-	public static final Block betweenRedstoneOre = new BlockRedstoneOre("redstone_ore", false).setCreativeTab(BLCreativeTabs.BLOCKS);
-	public static final Block lit_betweenRedstoneOre = new BlockRedstoneOre("lit_redstone_ore", true).setLightLevel(0.625F);
+	public static final Block betweenRedstoneOre = new BlockBLRedstoneOre("redstone_ore", false).setCreativeTab(BLCreativeTabs.BLOCKS);
+	public static final Block lit_betweenRedstoneOre = new BlockBLRedstoneOre("lit_redstone_ore", true);
 
     public static Block betweenCopperOre;
     public static Block betweenLeadOre;
     public static Block betweenNickelOre;
     public static Block betweenSilverOre;
     public static Block betweenTinOre;
+
+    public static final BlockWorldSapling worldSapling = new BlockWorldSapling("world_sapling");
 
     @SubscribeEvent
     public static void registerBlocks(RegistryEvent.Register<Block> evt) {
@@ -59,6 +76,9 @@ public final class ModBlocks {
 	    if(ConfigHandler.enableTin) {
 		    r.register(betweenTinOre = new BlockOres("tin_ore", 1));
 	    }
+
+		r.register(worldSapling);
+
     }
 
     @SubscribeEvent
@@ -89,6 +109,8 @@ public final class ModBlocks {
 		    r.register(new ItemBlock(betweenTinOre).setRegistryName(getRL("tin_ore")));
 	    }
 
+	    r.register(new ItemBlock(worldSapling).setRegistryName(getRL("world_sapling")));
+
         initOreDict();
     }
 
@@ -118,8 +140,8 @@ public final class ModBlocks {
 	    }
     }
 
-    private static ResourceLocation getRL(String name) {
-    	return new ResourceLocation(LibMisc.MOD_ID, name);
-    }
+	private static ResourceLocation getRL(String name) {
+		return new ResourceLocation(LibMisc.MOD_ID, name);
+	}
 
 }

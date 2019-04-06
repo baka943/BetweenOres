@@ -14,17 +14,18 @@ import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
+import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nonnull;
 import java.util.Random;
 
-public class BlockRedstoneOre extends BlockMod {
+public class BlockBLRedstoneOre extends BlockMod {
 
 	private boolean isOn;
 
-	public BlockRedstoneOre(String name, boolean isOn) {
+	public BlockBLRedstoneOre(String name, boolean isOn) {
 		super(Material.ROCK, name);
 		this.setSoundType(SoundType.STONE);
 		this.setHardness(3.0F);
@@ -33,37 +34,31 @@ public class BlockRedstoneOre extends BlockMod {
 
 		if(isOn) {
 			this.setTickRandomly(true);
+			this.setLightLevel(0.625F);
 		}
 
 		this.isOn = isOn;
 	}
 
-	/**
-	 * How many world ticks before ticking
-	 */
+	@Override
 	public int tickRate(World worldIn) {
 		return 30;
 	}
 
+	@Override
 	public void onBlockClicked(World worldIn, BlockPos pos, EntityPlayer playerIn) {
 		this.activate(worldIn, pos);
-		super.onBlockClicked(worldIn, pos, playerIn);
 	}
 
-	/**
-	 * Called when the given entity walks on this Block
-	 */
+	@Override
 	public void onEntityWalk(World worldIn, BlockPos pos, Entity entityIn) {
 		this.activate(worldIn, pos);
-		super.onEntityWalk(worldIn, pos, entityIn);
 	}
 
-	/**
-	 * Called when the block is right clicked by a player.
-	 */
+	@Override
 	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
 		this.activate(worldIn, pos);
-		return super.onBlockActivated(worldIn, pos, state, playerIn, hand, facing, hitX, hitY, hitZ);
+		return false;
 	}
 
 	private void activate(World worldIn, BlockPos pos) {
@@ -74,43 +69,31 @@ public class BlockRedstoneOre extends BlockMod {
 		}
 	}
 
+	@Override
 	public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand) {
 		if(this == ModBlocks.lit_betweenRedstoneOre) {
 			worldIn.setBlockState(pos, ModBlocks.betweenRedstoneOre.getDefaultState());
 		}
 	}
 
-	/**
-	 * Get the Item that this Block should drop when harvested.
-	 */
 	@Nonnull
+	@Override
 	public Item getItemDropped(IBlockState state, Random rand, int fortune) {
 		return Items.REDSTONE;
 	}
 
-	/**
-	 * Get the quantity dropped based on the given fortune level
-	 */
+	@Override
 	public int quantityDroppedWithBonus(int fortune, @Nonnull Random random) {
 		return this.quantityDropped(random) + random.nextInt(fortune + 1);
 	}
 
-	/**
-	 * Returns the quantity of items to drop on block destruction.
-	 */
+	@Override
 	public int quantityDropped(Random random) {
 		return 4 + random.nextInt(2);
 	}
 
-	/**
-	 * Spawns this Block's drops into the World as EntityItems.
-	 */
-	public void dropBlockAsItemWithChance(World worldIn, @Nonnull BlockPos pos, @Nonnull IBlockState state, float chance, int fortune) {
-		super.dropBlockAsItemWithChance(worldIn, pos, state, chance, fortune);
-	}
-
 	@Override
-	public int getExpDrop(IBlockState state, net.minecraft.world.IBlockAccess world, BlockPos pos, int fortune) {
+	public int getExpDrop(IBlockState state, IBlockAccess world, BlockPos pos, int fortune) {
 		if(this.getItemDropped(state, RANDOM, fortune) != Item.getItemFromBlock(this)) {
 			return 1 + RANDOM.nextInt(5);
 		}
@@ -119,6 +102,7 @@ public class BlockRedstoneOre extends BlockMod {
 	}
 
 	@SideOnly(Side.CLIENT)
+	@Override
 	public void randomDisplayTick(IBlockState stateIn, World worldIn, BlockPos pos, Random rand) {
 		if(this.isOn) {
 			this.spawnParticles(worldIn, pos);
@@ -164,13 +148,14 @@ public class BlockRedstoneOre extends BlockMod {
 	}
 
 	@Nonnull
+	@Override
 	protected ItemStack getSilkTouchDrop(@Nonnull IBlockState state) {
 		return new ItemStack(ModBlocks.betweenRedstoneOre);
 	}
 
 	@Nonnull
 	@Override
-	public ItemStack getPickBlock(@Nonnull IBlockState state, RayTraceResult tatget, @Nonnull World world, @Nonnull BlockPos pos, EntityPlayer player) {
+	public ItemStack getPickBlock(@Nonnull IBlockState state, RayTraceResult target, @Nonnull World world, @Nonnull BlockPos pos, EntityPlayer player) {
 		return new ItemStack(ModBlocks.betweenRedstoneOre);
 	}
 

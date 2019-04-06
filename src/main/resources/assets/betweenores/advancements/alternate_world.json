@@ -1,0 +1,34 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:stone",
+      "data": 0
+    },
+    "title": {
+      "translate": "advancements.betweenores.alternate_world.title"
+    },
+    "description": {
+      "translate": "advancements.betweenores.alternate_world.description"
+    },
+    "frame": "goal",
+    "hidden": true
+  },
+  "parent": "thebetweenlands:adventurer/dank_world",
+  "criteria": {
+    "to_nether": {
+      "trigger": "minecraft:changed_dimension",
+      "conditions": {
+        "from": "betweenlands",
+        "to": "the_nether"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "to_nether"
+    ]
+  ],
+  "rewards": {
+    "loot": ["entities/zombie"]
+  }
+}

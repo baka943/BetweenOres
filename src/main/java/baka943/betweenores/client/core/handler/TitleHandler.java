@@ -23,11 +23,11 @@ import java.util.List;
 import static thebetweenlands.client.handler.ScreenRenderHandler.TITLE_TEXTURE;
 import static thebetweenlands.client.handler.ScreenRenderHandler.getVisibleLocations;
 
-public class ScreenRenderHandler {
+public class TitleHandler {
 
-	private ScreenRenderHandler() {}
+	private TitleHandler() {}
 
-	public static ScreenRenderHandler INSTANCE = new ScreenRenderHandler();
+	public static TitleHandler INSTANCE = new TitleHandler();
 
 	private TextContainer titleContainer = null;
 	private String currentLocation = "";

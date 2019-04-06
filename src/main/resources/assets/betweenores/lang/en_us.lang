@@ -22,3 +22,10 @@ location.nether.name=80:<scale:1.75>Nether</scale>
 location.lava_sea.name=80:<scale:1.75>Lava Sea</scale>
 location.the_end.name=80:<scale:1.75>The End</scale>
 location.the_void.name=80:<scale:1.75>The Void</scale>
+
+advancements.betweenores.alternate_world.title=1
+advancements.betweenores.alternate_world.description=1
+advancements.betweenores.nightmare_world.title=2
+advancements.betweenores.nightmare_world.description=2
+advancements.betweenores.another_world.title=3
+advancements.betweenores.another_world.description=3
