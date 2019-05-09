@@ -15,16 +15,16 @@ public abstract class BlockMod extends Block implements IModelRegister {
 
     public BlockMod(Material material, String name) {
         super(material);
-	    setTranslationKey(LibMisc.MOD_ID + "." + name);
-        setRegistryName(new ResourceLocation(LibMisc.MOD_ID, name));
+	    this.setTranslationKey(LibMisc.MOD_ID + "." + name);
+        this.setRegistryName(new ResourceLocation(LibMisc.MOD_ID, name));
     }
 
-    @SideOnly(Side.CLIENT)
     @Override
-    public void registerModels() {
-	    if(Item.getItemFromBlock(this) != Items.AIR) {
-		    ModelHandler.registerInventoryVariant(this);
-	    }
-    }
+	@SideOnly(Side.CLIENT)
+	public void registerModels() {
+		if(Item.getItemFromBlock(this) != Items.AIR) {
+			ModelHandler.registerInventoryVariant(this);
+		}
+	}
 
 }

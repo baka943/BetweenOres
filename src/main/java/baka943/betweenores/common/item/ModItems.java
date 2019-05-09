@@ -1,6 +1,5 @@
 package baka943.betweenores.common.item;
 
-import baka943.betweenores.common.block.ModBlocks;
 import baka943.betweenores.common.lib.LibMisc;
 import net.minecraft.item.Item;
 import net.minecraftforge.event.RegistryEvent;

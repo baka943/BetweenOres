@@ -17,6 +17,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import thebetweenlands.client.tab.BLCreativeTabs;
 
 import javax.annotation.Nonnull;
 import java.util.Random;
@@ -35,7 +36,7 @@ public class BlockBLRedstoneOre extends BlockMod {
 		if(isOn) {
 			this.setTickRandomly(true);
 			this.setLightLevel(0.625F);
-		}
+		} else this.setCreativeTab(BLCreativeTabs.BLOCKS);
 
 		this.isOn = isOn;
 	}
@@ -64,15 +65,15 @@ public class BlockBLRedstoneOre extends BlockMod {
 	private void activate(World worldIn, BlockPos pos) {
 		this.spawnParticles(worldIn, pos);
 
-		if(this == ModBlocks.betweenRedstoneOre) {
-			worldIn.setBlockState(pos, ModBlocks.lit_betweenRedstoneOre.getDefaultState());
+		if(this == ModBlocks.REDSTONE_ORE) {
+			worldIn.setBlockState(pos, ModBlocks.LIT_REDSTONE_ORE.getDefaultState());
 		}
 	}
 
 	@Override
 	public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand) {
-		if(this == ModBlocks.lit_betweenRedstoneOre) {
-			worldIn.setBlockState(pos, ModBlocks.betweenRedstoneOre.getDefaultState());
+		if(this == ModBlocks.LIT_REDSTONE_ORE) {
+			worldIn.setBlockState(pos, ModBlocks.REDSTONE_ORE.getDefaultState());
 		}
 	}
 
@@ -89,7 +90,7 @@ public class BlockBLRedstoneOre extends BlockMod {
 
 	@Override
 	public int quantityDropped(Random random) {
-		return 4 + random.nextInt(2);
+		return 3 + random.nextInt(2);
 	}
 
 	@Override
@@ -101,8 +102,8 @@ public class BlockBLRedstoneOre extends BlockMod {
 		return 0;
 	}
 
-	@SideOnly(Side.CLIENT)
 	@Override
+	@SideOnly(Side.CLIENT)
 	public void randomDisplayTick(IBlockState stateIn, World worldIn, BlockPos pos, Random rand) {
 		if(this.isOn) {
 			this.spawnParticles(worldIn, pos);
@@ -110,39 +111,40 @@ public class BlockBLRedstoneOre extends BlockMod {
 	}
 
 	private void spawnParticles(World worldIn, BlockPos pos) {
-		Random random = worldIn.rand;
+		Random rand = worldIn.rand;
+		double pixel = 0.0625D;
 
 		for(int i = 0; i < 6; ++i) {
-			double d1 = (double)((float)pos.getX() + random.nextFloat());
-			double d2 = (double)((float)pos.getY() + random.nextFloat());
-			double d3 = (double)((float)pos.getZ() + random.nextFloat());
+			double x = pos.getX() + rand.nextFloat();
+			double y = pos.getY() + rand.nextFloat();
+			double z = pos.getZ() + rand.nextFloat();
 
 			if(i == 0 && !worldIn.getBlockState(pos.up()).isOpaqueCube()) {
-				d2 = (double)pos.getY() + 0.0625D + 1.0D;
+				y = pos.getY() + 1 + pixel;
 			}
 
 			if(i == 1 && !worldIn.getBlockState(pos.down()).isOpaqueCube()) {
-				d2 = (double)pos.getY() - 0.0625D;
+				y = pos.getY() - pixel;
 			}
 
 			if(i == 2 && !worldIn.getBlockState(pos.south()).isOpaqueCube()) {
-				d3 = (double)pos.getZ() + 0.0625D + 1.0D;
+				z = pos.getZ() + 1 + pixel;
 			}
 
 			if(i == 3 && !worldIn.getBlockState(pos.north()).isOpaqueCube()) {
-				d3 = (double)pos.getZ() - 0.0625D;
+				z = pos.getZ() - pixel;
 			}
 
 			if(i == 4 && !worldIn.getBlockState(pos.east()).isOpaqueCube()) {
-				d1 = (double)pos.getX() + 0.0625D + 1.0D;
+				x = pos.getX() + 1 + pixel;
 			}
 
 			if(i == 5 && !worldIn.getBlockState(pos.west()).isOpaqueCube()) {
-				d1 = (double)pos.getX() - 0.0625D;
+				x = pos.getX() - pixel;
 			}
 
-			if(d1 < (double)pos.getX() || d1 > (double)(pos.getX() + 1) || d2 < 0.0D || d2 > (double)(pos.getY() + 1) || d3 < (double)pos.getZ() || d3 > (double)(pos.getZ() + 1)) {
-				worldIn.spawnParticle(EnumParticleTypes.REDSTONE, d1, d2, d3, 0.0D, 0.0D, 0.0D);
+			if(x < pos.getX() || x > pos.getX() + 1 || y < pos.getY() || y > pos.getY() + 1 || z < pos.getZ() || z > pos.getZ() + 1) {
+				worldIn.spawnParticle(EnumParticleTypes.REDSTONE, x, y, z, 0, 0, 0);
 			}
 		}
 	}
@@ -150,13 +152,13 @@ public class BlockBLRedstoneOre extends BlockMod {
 	@Nonnull
 	@Override
 	protected ItemStack getSilkTouchDrop(@Nonnull IBlockState state) {
-		return new ItemStack(ModBlocks.betweenRedstoneOre);
+		return new ItemStack(ModBlocks.REDSTONE_ORE);
 	}
 
 	@Nonnull
 	@Override
 	public ItemStack getPickBlock(@Nonnull IBlockState state, RayTraceResult target, @Nonnull World world, @Nonnull BlockPos pos, EntityPlayer player) {
-		return new ItemStack(ModBlocks.betweenRedstoneOre);
+		return new ItemStack(ModBlocks.REDSTONE_ORE);
 	}
 
 }

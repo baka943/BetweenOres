@@ -13,6 +13,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 
 import java.util.Locale;
+import java.util.Objects;
 
 @Mod.EventBusSubscriber(value = Side.CLIENT, modid = LibMisc.MOD_ID)
 public final class ModelHandler {
@@ -37,10 +38,12 @@ public final class ModelHandler {
     }
 
 	// Registers the ItemBlock to models/item/<registryname>#inventory
-    public static void registerInventoryVariant(Block b) {
-        ModelLoader.setCustomModelResourceLocation(
-                Item.getItemFromBlock(b), 0,
-                new ModelResourceLocation(b.getRegistryName(), "inventory"));
+    public static void registerInventoryVariant(Block block) {
+	    ModelLoader.setCustomModelResourceLocation(
+			    Item.getItemFromBlock(block),
+			    0,
+			    new ModelResourceLocation(Objects.requireNonNull(block.getRegistryName()), "inventory")
+	    );
     }
 
 }

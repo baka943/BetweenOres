@@ -12,6 +12,4 @@ public interface IProxy {
 
     void postInit(FMLPostInitializationEvent event);
 
-    void registerEventHandlers();
-
 }
