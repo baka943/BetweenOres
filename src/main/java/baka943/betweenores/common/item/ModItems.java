@@ -11,22 +11,22 @@ import net.minecraftforge.registries.IForgeRegistry;
 @Mod.EventBusSubscriber(modid = LibMisc.MOD_ID)
 public class ModItems {
 
-	public static final Item nuggetOctine = new ItemMod("octine_nugget");
-	public static final Item nuggetSyrmorite = new ItemMod("syrmorite_nugget");
+	public static final Item OCTINE_NUGGET = new ItemMod("octine_nugget");
+	public static final Item SYRMORITE_NUGGET = new ItemMod("syrmorite_nugget");
 
 	@SubscribeEvent
 	public static void registerItems(RegistryEvent.Register<Item> evt) {
 		IForgeRegistry<Item> r = evt.getRegistry();
 
-		r.register(nuggetOctine);
-		r.register(nuggetSyrmorite);
+		r.register(OCTINE_NUGGET);
+		r.register(SYRMORITE_NUGGET);
 
-		registerOreDictionary();
+		initOreDict();
 	}
 
-	private static void registerOreDictionary() {
-		OreDictionary.registerOre("nuggetOctine", nuggetOctine);
-		OreDictionary.registerOre("nuggetSyrmorite", nuggetSyrmorite);
+	private static void initOreDict() {
+		OreDictionary.registerOre("nuggetOctine", OCTINE_NUGGET);
+		OreDictionary.registerOre("nuggetSyrmorite", SYRMORITE_NUGGET);
 	}
 
 }

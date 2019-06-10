@@ -2,10 +2,10 @@ package baka943.betweenores.common.block;
 
 import baka943.betweenores.common.core.handler.ConfigHandler;
 import baka943.betweenores.common.lib.LibMisc;
+import baka943.betweenores.common.lib.Utils;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
-import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -57,27 +57,27 @@ public final class ModBlocks {
     public static void registerItemBlocks(RegistryEvent.Register<Item> evt) {
         IForgeRegistry<Item> r = evt.getRegistry();
 
-        r.register(new ItemBlock(IRON_ORE).setRegistryName(getRL("iron_ore")));
-        r.register(new ItemBlock(GOLD_ORE).setRegistryName(getRL("gold_ore")));
-	    r.register(new ItemBlock(LAPIS_ORE).setRegistryName(getRL("lapis_ore")));
-	    r.register(new ItemBlock(DIAMOND_ORE).setRegistryName(getRL("diamond_ore")));
-	    r.register(new ItemBlock(QUARTZ_ORE).setRegistryName(getRL("quartz_ore")));
-	    r.register(new ItemBlock(REDSTONE_ORE).setRegistryName(getRL("redstone_ore")));
+        r.register(new ItemBlock(IRON_ORE).setRegistryName(Utils.getRL("iron_ore")));
+        r.register(new ItemBlock(GOLD_ORE).setRegistryName(Utils.getRL("gold_ore")));
+	    r.register(new ItemBlock(LAPIS_ORE).setRegistryName(Utils.getRL("lapis_ore")));
+	    r.register(new ItemBlock(DIAMOND_ORE).setRegistryName(Utils.getRL("diamond_ore")));
+	    r.register(new ItemBlock(QUARTZ_ORE).setRegistryName(Utils.getRL("quartz_ore")));
+	    r.register(new ItemBlock(REDSTONE_ORE).setRegistryName(Utils.getRL("redstone_ore")));
 
 	    if(ConfigHandler.enableCopper) {
-		    r.register(new ItemBlock(COPPER_ORE).setRegistryName(getRL("copper_ore")));
+		    r.register(new ItemBlock(COPPER_ORE).setRegistryName(Utils.getRL("copper_ore")));
 	    }
 	    if(ConfigHandler.enableTin) {
-		    r.register(new ItemBlock(TIN_ORE).setRegistryName(getRL("tin_ore")));
+		    r.register(new ItemBlock(TIN_ORE).setRegistryName(Utils.getRL("tin_ore")));
 	    }
 	    if(ConfigHandler.enableLead) {
-		    r.register(new ItemBlock(LEAD_ORE).setRegistryName(getRL("lead_ore")));
+		    r.register(new ItemBlock(LEAD_ORE).setRegistryName(Utils.getRL("lead_ore")));
 	    }
 	    if(ConfigHandler.enableNickel) {
-		    r.register(new ItemBlock(NICKEL_ORE).setRegistryName(getRL("nickel_ore")));
+		    r.register(new ItemBlock(NICKEL_ORE).setRegistryName(Utils.getRL("nickel_ore")));
 	    }
 	    if(ConfigHandler.enableSilver) {
-		    r.register(new ItemBlock(SILVER_ORE).setRegistryName(getRL("silver_ore")));
+		    r.register(new ItemBlock(SILVER_ORE).setRegistryName(Utils.getRL("silver_ore")));
 	    }
 
         initOreDict();
@@ -101,9 +101,5 @@ public final class ModBlocks {
 
 	    if(ConfigHandler.enableSilver) OreDictionary.registerOre("oreSilver", SILVER_ORE);
     }
-
-	private static ResourceLocation getRL(String name) {
-		return new ResourceLocation(LibMisc.MOD_ID, name);
-	}
 
 }

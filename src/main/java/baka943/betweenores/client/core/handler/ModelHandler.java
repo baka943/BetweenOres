@@ -42,7 +42,7 @@ public final class ModelHandler {
 	    ModelLoader.setCustomModelResourceLocation(
 			    Item.getItemFromBlock(block),
 			    0,
-			    new ModelResourceLocation(Objects.requireNonNull(block.getRegistryName()), "inventory")
+			    new ModelResourceLocation(block.getRegistryName(), "inventory")
 	    );
     }
 
