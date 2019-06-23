@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "inventory": { "model": "betweenores:coal_ore" },
+    "normal": { "model": "betweenores:coal_ore" }
+  }
+}

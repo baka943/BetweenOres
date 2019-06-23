@@ -15,11 +15,11 @@ public class ModItems {
 	public static final Item SYRMORITE_NUGGET = new ItemMod("syrmorite_nugget");
 
 	@SubscribeEvent
-	public static void registerItems(RegistryEvent.Register<Item> evt) {
-		IForgeRegistry<Item> r = evt.getRegistry();
+	public static void registerItems(RegistryEvent.Register<Item> event) {
+		IForgeRegistry<Item> registry = event.getRegistry();
 
-		r.register(OCTINE_NUGGET);
-		r.register(SYRMORITE_NUGGET);
+		registry.register(OCTINE_NUGGET);
+		registry.register(SYRMORITE_NUGGET);
 
 		initOreDict();
 	}

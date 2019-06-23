@@ -26,11 +26,15 @@ public class BlockOres extends BlockMod {
     @Nonnull
     @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-        if(this == ModBlocks.DIAMOND_ORE) {
+	    if(this == ModBlocks.COAL_ORE) {
+	    	return Items.COAL;
+	    } else if(this == ModBlocks.DIAMOND_ORE) {
             return Items.DIAMOND;
-        } else {
-            return this == ModBlocks.QUARTZ_ORE ? Items.QUARTZ : Item.getItemFromBlock(this);
-        }
+        } else if(this == ModBlocks.EMERALD_ORE) {
+	    	return Items.EMERALD;
+	    } else {
+		    return this == ModBlocks.QUARTZ_ORE ? Items.QUARTZ : Item.getItemFromBlock(this);
+	    }
     }
 
     @Override
@@ -48,11 +52,15 @@ public class BlockOres extends BlockMod {
     public int getExpDrop(IBlockState state, IBlockAccess world, BlockPos pos, int fortune) {
 	    Random rand = new Random();
 
-        if(this == ModBlocks.DIAMOND_ORE) {
-            return rand.nextInt(4) + 3;
-        } else {
-	        return this == ModBlocks.QUARTZ_ORE ? rand.nextInt(3) + 2 : 0;
-        }
+	    if(this == ModBlocks.COAL_ORE) {
+	    	return rand.nextInt(2);
+	    } else if(this == ModBlocks.DIAMOND_ORE) {
+		    return rand.nextInt(4) + 3;
+	    } else if(this == ModBlocks.EMERALD_ORE) {
+	    	return rand.nextInt(4) + 3;
+	    } else {
+		    return this == ModBlocks.QUARTZ_ORE ? rand.nextInt(3) + 2 : 0;
+	    }
     }
 
 }
