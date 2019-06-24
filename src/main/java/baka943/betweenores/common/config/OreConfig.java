@@ -438,4 +438,28 @@ public class OreConfig {
 
 	}
 
+	@Comment("Compatibility")
+	@LangKey(LANG_PREFIX + "compatibility")
+	@Name("compatibility")
+	public static final Compatibility COMPATIBILITY = new Compatibility();
+
+	public static final class Compatibility {
+
+		@Comment("The priority sorted ModIDs for BetweenOres recipes to try using.")
+		@LangKey(LANG_PREFIX + "mod_priority")
+		@Name("mod_priority")
+		@RequiresMcRestart
+    	public String[] modPriority = new String[] {
+    			"minecraft",
+			    "thermalfoundation",
+			    "substratum",
+			    "ic2",
+			    "mekanism",
+			    "immersiveengineering",
+			    "techreborn",
+			    "embers"
+    	};
+
+	}
+
 }

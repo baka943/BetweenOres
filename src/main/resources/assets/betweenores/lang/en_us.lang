@@ -81,3 +81,7 @@ config.betweenores.silver_min=Silver Ore Min Y
 config.betweenores.silver_max=Silver Ore Max Y
 config.betweenores.silver_size=Silver Ore Vein Size
 config.betweenores.silver_per_chunk=Silver Ore Per Chunk
+
+config.betweenores.compatibility=Compatibility
+config.betweenores.compatibility.tooltip=Compatible with other mods
+config.betweenores.mod_priority=Mod Priority
