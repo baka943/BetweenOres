@@ -5,7 +5,7 @@
   "description": "Add some Betweenlands-Style Ores.",
   "version": "${version}",
   "mcversion": "${mcversion}",
-  "url": "https://minecraft.curseforge.com/projects/between-ores",
+  "url": "https://www.curseforge.com/minecraft/mc-mods/between-ores",
   "updateUrl": "",
   "authorList": ["baka943"],
   "credits": "The Forge and FML",
