@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "inventory": { "model": "betweenores:iridium_ore" },
+    "normal": { "model": "betweenores:iridium_ore" }
+  }
+}

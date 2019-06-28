@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "inventory": { "model": "betweenores:platinum_ore" },
+    "normal": { "model": "betweenores:platinum_ore" }
+  }
+}

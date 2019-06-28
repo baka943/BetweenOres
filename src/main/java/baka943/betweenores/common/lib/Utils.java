@@ -23,25 +23,20 @@ public class Utils {
 		outer:
 		for(ItemStack item : items) {
 			if(!item.isEmpty()) {
-				if(i == Integer.MAX_VALUE && stack.isEmpty()) {
-					stack = item;
-				}
-
 				String modid = item.getItem().getCreatorModId(item);
 
-				inner:
-				for(int j = 0; j <= Math.min(i, OreConfig.COMPATIBILITY.modPriority.length - 1); j++) {
-					if(modid.equals(OreConfig.COMPATIBILITY.modPriority[j])) {
+				for(int j = 0; j <= Math.min(i, OreConfig.COMPAT.modPriority.length - 1); j++) {
+					if(modid.equals(OreConfig.COMPAT.modPriority[j])) {
 						i = j;
 						stack = item;
 
 						if(i == 0) {
 							break outer;
 						}
-
-						break inner;
 					} else {
 						stack = items.get(0);
+
+						break;
 					}
 				}
 			}

@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "inventory": { "model": "betweenores:osmium_ore" },
+    "normal": { "model": "betweenores:osmium_ore" }
+  }
+}
