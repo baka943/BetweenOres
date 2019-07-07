@@ -39,13 +39,13 @@ public class BlockOres extends BlockMod {
 
     @Override
     public int quantityDroppedWithBonus(int fortune, @Nonnull Random rand) {
-        if(fortune > 0 && Item.getItemFromBlock(this) != this.getItemDropped(this.getDefaultState(), rand, fortune)) {
-	        int i = rand.nextInt(fortune + 1);
+        int i = 0;
 
-	        return i + 1;
+    	if(fortune > 0 && Item.getItemFromBlock(this) != this.getItemDropped(this.getDefaultState(), rand, fortune)) {
+	        i = rand.nextInt(fortune + 1);
         }
 
-        return 1;
+        return i + 1;
     }
 
     @Override

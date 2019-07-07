@@ -19,8 +19,8 @@ public class BlockMod extends Block implements IModelRegister {
 	    this.setTranslationKey(LibMisc.MOD_ID + "." + name);
     }
 
-    @Override
 	@SideOnly(Side.CLIENT)
+    @Override
 	public void registerModels() {
 		if(Item.getItemFromBlock(this) != Items.AIR) {
 			ModelHandler.registerInventoryVariant(this);

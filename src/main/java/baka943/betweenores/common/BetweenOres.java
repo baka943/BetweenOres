@@ -21,7 +21,6 @@ public class BetweenOres {
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
 	    OreGens.addWorldGeneration();
-
     	proxy.preInit(event);
     }
 

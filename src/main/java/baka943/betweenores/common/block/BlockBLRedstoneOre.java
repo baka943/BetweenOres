@@ -102,8 +102,8 @@ public class BlockBLRedstoneOre extends BlockMod {
 		return 0;
 	}
 
-	@Override
 	@SideOnly(Side.CLIENT)
+	@Override
 	public void randomDisplayTick(IBlockState stateIn, World worldIn, BlockPos pos, Random rand) {
 		if(this.isOn) {
 			this.spawnParticles(worldIn, pos);
