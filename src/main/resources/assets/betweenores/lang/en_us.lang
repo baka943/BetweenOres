@@ -20,10 +20,6 @@ tile.betweenores.mithril_ore.name=Mithril Ore
 tile.betweenores.uranium_ore.name=Uranium Ore
 tile.betweenores.osmium_ore.name=Osmium Ore
 
-#Items
-item.betweenores.octine_nugget.name=Octine Nugget
-item.betweenores.syrmorite_nugget.name=Syrmorite Nugget
-
 #Config
 config.betweenores.metal_ore=Metal Ore
 config.betweenores.metal_ore.tooltip=Control the metal ores

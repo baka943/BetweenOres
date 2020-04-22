@@ -1,6 +1,7 @@
 package baka943.betweenores.common.lib;
 
 import baka943.betweenores.common.config.OreConfig;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.oredict.OreDictionary;
@@ -17,33 +18,36 @@ public class Utils {
 	public static ItemStack getStackFromOredict(String oredict) {
 		int i = Integer.MAX_VALUE;
 		List<ItemStack> items = OreDictionary.getOres(oredict, false);
-		ItemStack stack = items.get(0);
-		Iterator iterator = items.iterator();
 
-		while(iterator.hasNext() && i == Integer.MAX_VALUE) {
-			ItemStack item = (ItemStack) iterator.next();
+		if(!items.isEmpty()) {
+			ItemStack stack = items.get(0);
+			Iterator iterator = items.iterator();
 
-			if(!item.isEmpty()) {
-				String modid = item.getItem().getCreatorModId(item);
+			while(iterator.hasNext() && i == Integer.MAX_VALUE) {
+				ItemStack item = (ItemStack) iterator.next();
 
-				for(int j = 0; j <= OreConfig.COMPAT.modPriority.length - 1; j++) {
-					if(modid != null && modid.equals(OreConfig.COMPAT.modPriority[j])) {
-						i = 0;
-						stack = item;
+				if(!item.isEmpty()) {
+					String modid = item.getItem().getCreatorModId(item);
 
-						break;
+					for(int j = 0; j <= OreConfig.COMPAT.modPriority.length - 1; j++) {
+						if(modid != null && modid.equals(OreConfig.COMPAT.modPriority[j])) {
+							i = 0;
+							stack = item;
+
+							break;
+						}
 					}
 				}
 			}
-		}
 
-		stack = stack.copy();
+			stack = stack.copy();
 
-		if(!stack.isEmpty() && stack.getMetadata() == OreDictionary.WILDCARD_VALUE) {
-			stack.setItemDamage(0);
-		}
+			if(!stack.isEmpty() && stack.getMetadata() == OreDictionary.WILDCARD_VALUE) {
+				stack.setItemDamage(0);
+			}
 
-		return stack;
+			return stack;
+		} else return new ItemStack(Items.AIR);
 	}
 
 }

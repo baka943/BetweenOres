@@ -20,9 +20,6 @@ tile.betweenores.mithril_ore.name=秘银矿石
 tile.betweenores.uranium_ore.name=铀矿石
 tile.betweenores.osmium_ore.name=锇矿石
 
-item.betweenores.octine_nugget.name=炽炎铁粒
-item.betweenores.syrmorite_nugget.name=赛摩铜粒
-
 # Config
 config.betweenores.metal_ore=金属矿物
 config.betweenores.metal_ore.tooltip=控制金属矿物是否注册
