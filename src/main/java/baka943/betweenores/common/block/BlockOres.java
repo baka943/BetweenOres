@@ -1,5 +1,6 @@
 package baka943.betweenores.common.block;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -7,10 +8,14 @@ import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
+import net.minecraft.world.World;
+import net.minecraftforge.fluids.FluidRegistry;
 import thebetweenlands.client.tab.BLCreativeTabs;
 
 import javax.annotation.Nonnull;
 import java.util.Random;
+
+import static baka943.betweenores.common.BetweenOres.thermalFoundationLoaded;
 
 public class BlockOres extends BlockMod {
 
@@ -23,9 +28,29 @@ public class BlockOres extends BlockMod {
 	    this.setCreativeTab(BLCreativeTabs.BLOCKS);
     }
 
-    @Nonnull
+	@SuppressWarnings("deprecation")
+	@Override
+	public void neighborChanged(@Nonnull IBlockState state, @Nonnull World worldIn, @Nonnull BlockPos pos, @Nonnull Block blockIn, @Nonnull BlockPos fromPos) {
+		try {
+			if(!worldIn.isRemote && this == ModBlocks.SILVER_ORE) {
+				Block block = worldIn.getBlockState(fromPos).getBlock();
+
+				if(thermalFoundationLoaded && FluidRegistry.isFluidRegistered("mana")) {
+					Block fluid = FluidRegistry.getFluid("mana").getBlock();
+
+					if(block == fluid) {
+						worldIn.setBlockState(pos, ModBlocks.MITHRIL_ORE.getDefaultState());
+					}
+				}
+			}
+		} catch(Throwable throwable) {
+			System.out.println("NO!");
+		}
+	}
+
+	@Nonnull
     @Override
-    public Item getItemDropped(IBlockState state, Random rand, int fortune) {
+    public Item getItemDropped(@Nonnull IBlockState state, @Nonnull Random rand, int fortune) {
 	    if(this == ModBlocks.COAL_ORE) {
 	    	return Items.COAL;
 	    } else if(this == ModBlocks.DIAMOND_ORE) {
@@ -49,7 +74,7 @@ public class BlockOres extends BlockMod {
     }
 
     @Override
-    public int getExpDrop(IBlockState state, IBlockAccess world, BlockPos pos, int fortune) {
+    public int getExpDrop(@Nonnull IBlockState state, @Nonnull IBlockAccess world, @Nonnull BlockPos pos, int fortune) {
 	    Random rand = new Random();
 
 	    if(this == ModBlocks.COAL_ORE) {

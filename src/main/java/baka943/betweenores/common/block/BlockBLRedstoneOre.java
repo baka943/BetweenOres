@@ -24,7 +24,7 @@ import java.util.Random;
 
 public class BlockBLRedstoneOre extends BlockMod {
 
-	private boolean isOn;
+	private final boolean isOn;
 
 	public BlockBLRedstoneOre(String name, boolean isOn) {
 		super(Material.ROCK, name);
@@ -42,22 +42,22 @@ public class BlockBLRedstoneOre extends BlockMod {
 	}
 
 	@Override
-	public int tickRate(World worldIn) {
+	public int tickRate(@Nonnull World worldIn) {
 		return 30;
 	}
 
 	@Override
-	public void onBlockClicked(World worldIn, BlockPos pos, EntityPlayer playerIn) {
+	public void onBlockClicked(@Nonnull World worldIn, @Nonnull BlockPos pos, @Nonnull EntityPlayer playerIn) {
 		this.activate(worldIn, pos);
 	}
 
 	@Override
-	public void onEntityWalk(World worldIn, BlockPos pos, Entity entityIn) {
+	public void onEntityWalk(@Nonnull World worldIn, @Nonnull BlockPos pos, @Nonnull Entity entityIn) {
 		this.activate(worldIn, pos);
 	}
 
 	@Override
-	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
+	public boolean onBlockActivated(@Nonnull World worldIn, @Nonnull BlockPos pos, @Nonnull IBlockState state, @Nonnull EntityPlayer playerIn, @Nonnull EnumHand hand, @Nonnull EnumFacing facing, float hitX, float hitY, float hitZ) {
 		this.activate(worldIn, pos);
 		return false;
 	}
@@ -71,7 +71,7 @@ public class BlockBLRedstoneOre extends BlockMod {
 	}
 
 	@Override
-	public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand) {
+	public void updateTick(@Nonnull World worldIn, @Nonnull BlockPos pos, @Nonnull IBlockState state, @Nonnull Random rand) {
 		if(this == ModBlocks.LIT_REDSTONE_ORE) {
 			worldIn.setBlockState(pos, ModBlocks.REDSTONE_ORE.getDefaultState());
 		}
@@ -79,7 +79,7 @@ public class BlockBLRedstoneOre extends BlockMod {
 
 	@Nonnull
 	@Override
-	public Item getItemDropped(IBlockState state, Random rand, int fortune) {
+	public Item getItemDropped(@Nonnull IBlockState state, @Nonnull Random rand, int fortune) {
 		return Items.REDSTONE;
 	}
 
@@ -94,7 +94,7 @@ public class BlockBLRedstoneOre extends BlockMod {
 	}
 
 	@Override
-	public int getExpDrop(IBlockState state, IBlockAccess world, BlockPos pos, int fortune) {
+	public int getExpDrop(@Nonnull IBlockState state, @Nonnull IBlockAccess world, @Nonnull BlockPos pos, int fortune) {
 		if(this.getItemDropped(state, RANDOM, fortune) != Item.getItemFromBlock(this)) {
 			return 1 + RANDOM.nextInt(5);
 		}
@@ -104,7 +104,7 @@ public class BlockBLRedstoneOre extends BlockMod {
 
 	@SideOnly(Side.CLIENT)
 	@Override
-	public void randomDisplayTick(IBlockState stateIn, World worldIn, BlockPos pos, Random rand) {
+	public void randomDisplayTick(@Nonnull IBlockState stateIn, @Nonnull World worldIn, @Nonnull BlockPos pos, @Nonnull Random rand) {
 		if(this.isOn) {
 			this.spawnParticles(worldIn, pos);
 		}
@@ -157,7 +157,7 @@ public class BlockBLRedstoneOre extends BlockMod {
 
 	@Nonnull
 	@Override
-	public ItemStack getPickBlock(@Nonnull IBlockState state, RayTraceResult target, @Nonnull World world, @Nonnull BlockPos pos, EntityPlayer player) {
+	public ItemStack getPickBlock(@Nonnull IBlockState state, @Nonnull RayTraceResult target, @Nonnull World world, @Nonnull BlockPos pos, @Nonnull EntityPlayer player) {
 		return new ItemStack(ModBlocks.REDSTONE_ORE);
 	}
 

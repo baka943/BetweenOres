@@ -19,6 +19,8 @@ tile.betweenores.iridium_ore.name=Iridium Ore
 tile.betweenores.mithril_ore.name=Mithril Ore
 tile.betweenores.uranium_ore.name=Uranium Ore
 tile.betweenores.osmium_ore.name=Osmium Ore
+tile.betweenores.ardite_ore.name=Ardite Ore
+tile.betweenores.cobalt_ore.name=Cobalt Ore
 
 #Config
 config.betweenores.metal_ore=Metal Ore
@@ -34,6 +36,8 @@ config.betweenores.iridium_enable=Iridium Ore Enable
 config.betweenores.mithril_enable=Mithril Ore Enable
 config.betweenores.uranium_enable=Uranium Ore Enable
 config.betweenores.osmium_enable=Osmium Ore Enable
+config.betweenores.ardite_enable=Ardite Ore Enable
+config.betweenores.cobalt_enable=Cobalt Ore Enable
 
 config.betweenores.compat=Compat
 config.betweenores.compat.tooltip=Compatibility with other mods

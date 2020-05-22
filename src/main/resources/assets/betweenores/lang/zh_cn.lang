@@ -19,6 +19,8 @@ tile.betweenores.iridium_ore.name=铱矿石
 tile.betweenores.mithril_ore.name=秘银矿石
 tile.betweenores.uranium_ore.name=铀矿石
 tile.betweenores.osmium_ore.name=锇矿石
+tile.betweenores.ardite_ore.name=阿迪特矿石
+tile.betweenores.cobalt_ore.name=钴矿石
 
 # Config
 config.betweenores.metal_ore=金属矿物
@@ -34,6 +36,8 @@ config.betweenores.iridium_enable=注册铱矿石
 config.betweenores.mithril_enable=注册秘银矿石
 config.betweenores.uranium_enable=注册铀矿石
 config.betweenores.osmium_enable=注册锇矿石
+config.betweenores.ardite_enable=注册阿迪特矿石
+config.betweenores.cobalt_enable=注册钴矿石
 
 config.betweenores.compat=兼容
 config.betweenores.compat.tooltip=调节与其他模组的兼容

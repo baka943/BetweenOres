@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "inventory": { "model": "betweenores:ardite_ore" },
+    "normal": { "model": "betweenores:ardite_ore" }
+  }
+}

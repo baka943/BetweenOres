@@ -99,6 +99,18 @@ public class OreConfig {
 	    @RequiresMcRestart
 	    public boolean osmiumEnable = true;
 
+    	@Comment("If true, ardite ore will generate in the Betweenlands.")
+	    @LangKey(LANG_PREFIX + "ardite_enable")
+	    @Name("ardite_enable")
+	    @RequiresMcRestart
+	    public boolean arditeEnable = true;
+
+    	@Comment("If true, cobalt ore will generate in the Betweenlands.")
+	    @LangKey(LANG_PREFIX + "cobalt_enable")
+	    @Name("cobalt_enable")
+	    @RequiresMcRestart
+	    public boolean cobaltEnable = true;
+
 	}
 
 	@Comment("Compat")

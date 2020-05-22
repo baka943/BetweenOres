@@ -40,6 +40,8 @@ public final class ModBlocks {
 	public static final Block MITHRIL_ORE = new BlockOres("mithril_ore", 3).setLightLevel(0.5F);
 	public static final Block URANIUM_ORE = new BlockOres("uranium_ore", 3);
 	public static final Block OSMIUM_ORE = new BlockOres("osmium_ore", 0);
+	public static final Block ARDITE_ORE = new BlockOres("ardite_ore", 4);
+	public static final Block COBALT_ORE = new BlockOres("cobalt_ore", 5);
 
     @SubscribeEvent
     public static void registerBlocks(RegistryEvent.Register<Block> event) {
@@ -98,6 +100,14 @@ public final class ModBlocks {
 	    if(OreConfig.METAL_ORE.osmiumEnable) {
 		    registry.register(OSMIUM_ORE);
 	    }
+
+	    if(OreConfig.METAL_ORE.arditeEnable) {
+	    	registry.register(ARDITE_ORE);
+	    }
+
+	    if(OreConfig.METAL_ORE.cobaltEnable) {
+		    registry.register(COBALT_ORE);
+	    }
     }
 
     @SubscribeEvent
@@ -140,9 +150,10 @@ public final class ModBlocks {
 	    if(OreConfig.METAL_ORE.platinumEnable) {
 		    registry.register(new ItemBlock(PLATINUM_ORE) {
 
+		    	@SuppressWarnings("deprecation")
 			    @Nonnull
 			    @Override
-			    public EnumRarity getRarity(ItemStack stack) {
+			    public EnumRarity getRarity(@Nonnull ItemStack stack) {
 				    return EnumRarity.UNCOMMON;
 			    }
 
@@ -152,9 +163,10 @@ public final class ModBlocks {
 	    if(OreConfig.METAL_ORE.iridiumEnable) {
 		    registry.register(new ItemBlock(IRIDIUM_ORE) {
 
+			    @SuppressWarnings("deprecation")
 			    @Nonnull
 			    @Override
-			    public EnumRarity getRarity(ItemStack stack) {
+			    public EnumRarity getRarity(@Nonnull ItemStack stack) {
 				    return EnumRarity.UNCOMMON;
 			    }
 
@@ -164,9 +176,10 @@ public final class ModBlocks {
 	    if(OreConfig.METAL_ORE.mithrilEnable) {
 		    registry.register(new ItemBlock(MITHRIL_ORE) {
 
+		    	@SuppressWarnings("deprecation")
 			    @Nonnull
 			    @Override
-			    public EnumRarity getRarity(ItemStack stack) {
+			    public EnumRarity getRarity(@Nonnull ItemStack stack) {
 				    return EnumRarity.RARE;
 			    }
 
@@ -179,6 +192,14 @@ public final class ModBlocks {
 
 	    if(OreConfig.METAL_ORE.osmiumEnable) {
 		    registry.register(new ItemBlock(OSMIUM_ORE).setRegistryName(Utils.getRL("osmium_ore")));
+	    }
+
+	    if(OreConfig.METAL_ORE.arditeEnable) {
+		    registry.register(new ItemBlock(ARDITE_ORE).setRegistryName(Utils.getRL("ardite_ore")));
+	    }
+
+	    if(OreConfig.METAL_ORE.cobaltEnable) {
+		    registry.register(new ItemBlock(COBALT_ORE).setRegistryName(Utils.getRL("cobalt_ore")));
 	    }
 
 	    initOreDict();
@@ -236,6 +257,14 @@ public final class ModBlocks {
 
 	    if(OreConfig.METAL_ORE.osmiumEnable) {
 	    	OreDictionary.registerOre("oreOsmium", OSMIUM_ORE);
+	    }
+
+	    if(OreConfig.METAL_ORE.arditeEnable) {
+	    	OreDictionary.registerOre("oreArdite", ARDITE_ORE);
+	    }
+
+	    if(OreConfig.METAL_ORE.cobaltEnable) {
+	    	OreDictionary.registerOre("oreCobalt", COBALT_ORE);
 	    }
     }
 
