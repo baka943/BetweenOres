@@ -40,8 +40,8 @@ public final class ModBlocks {
 	public static final Block MITHRIL_ORE = new BlockOres("mithril_ore", 3).setLightLevel(0.5F);
 	public static final Block URANIUM_ORE = new BlockOres("uranium_ore", 3);
 	public static final Block OSMIUM_ORE = new BlockOres("osmium_ore", 0);
-	public static final Block ARDITE_ORE = new BlockOres("ardite_ore", 4);
-	public static final Block COBALT_ORE = new BlockOres("cobalt_ore", 5);
+	public static final Block ARDITE_ORE = new BlockOres("ardite_ore", 3);
+	public static final Block COBALT_ORE = new BlockOres("cobalt_ore", 4);
 
     @SubscribeEvent
     public static void registerBlocks(RegistryEvent.Register<Block> event) {
